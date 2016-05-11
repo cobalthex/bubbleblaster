@@ -1,0 +1,41 @@
+{
+  "android": {
+    "icons": {
+      "36": "resources/icons/android36.png",
+      "48": "resources/icons/android48.png",
+      "72": "resources/icons/android72.png",
+      "96": "resources/icons/android96.png"
+    },
+    "versionCode": 1
+  },
+  "appID": "7ba6726c608a43fd8b607d27841e2774",
+  "dependencies": {
+    "devkit-core": "https://github.com/gameclosure/devkit-core#v3.0.2"
+  },
+  "icon": "resources/icons/icon512.png",
+  "ios": {
+    "appleID": "123456789",
+    "bundleID": "bubbles",
+    "icons": {
+      "114": "resources/icons/ios114.png",
+      "144": "resources/icons/ios144.png",
+      "57": "resources/icons/ios57.png",
+      "72": "resources/icons/ios72.png"
+    },
+    "version": "1.0.0"
+  },
+  "shortName": "bubbles",
+  "splash": {
+    "autoHide": true,
+    "universal": "resources/splash/portrait2048.png"
+  },
+  "studio": {
+    "domain": "mattehines.com",
+    "name": "Matt Hines",
+    "stagingDomain": "bubbles.mattehines.com"
+  },
+  "supportedOrientations": [
+    "portrait"
+  ],
+  "title": "Bubble-Popper"
+}
