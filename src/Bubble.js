@@ -61,8 +61,7 @@ exports = Class(ui.ImageView, function(supr)
 
 		if (this.style.y > GC.app.height - this.style.height)
 		{
-			this.getSuperview().emit('bubble:popped');
-			this.removeFromSuperview();
+			this.getSuperview().popOne(this);
 		}
 	};
 });

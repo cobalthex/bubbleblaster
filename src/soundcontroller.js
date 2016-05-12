@@ -15,9 +15,13 @@ exports.getSound = function () {
           background: true,
           loop: true
         },
-        whack: {
-          path: 'effect',
+        pop: {
+          path: 'effects',
           background: false
+        },
+        shoot: {
+          path: 'effects',
+          background: false,
         }
       }
     });

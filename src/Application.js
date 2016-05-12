@@ -21,21 +21,19 @@ exports = Class(GC.Application, function ()
   	this.initUI = function()
     {
         this.width = 320;
-        this.height = (device.height / device.width) * this.width;
+        this.height = Math.max(480, (device.height / device.width) * this.width);
 
   		var titleScreen = new TitleScreen();
 		var gameScreen = new GameScreen();
         var winScreen = new WinScreen();
         var loseScreen = new LoseScreen();
 
-  		this.view.style.backgroundColor = '#0f8a42';
+  		this.view.style.backgroundColor = 'black';
 
   		// Create a stackview of size 320x480, then scale it to fit horizontally
   		// Add a new StackView to the root of the scene graph
   		var rootView = new StackView({
             superview: this,
-            // x: device.width / 2 - 160,
-            // y: device.height / 2 - 240,
             x: 0,
             y: 0,
             width: this.width,
@@ -45,6 +43,7 @@ exports = Class(GC.Application, function ()
   		});
 
         rootView.push(titleScreen);
+        titleScreen.emit('app:start');
 
         var sound = soundcontroller.getSound();
 
@@ -59,18 +58,20 @@ exports = Class(GC.Application, function ()
         {
             rootView.pop();
             rootView.pop();
+            titleScreen.emit('app:start');
         }
         winScreen.on('reset', resetGame);
         loseScreen.on('reset', resetGame);
 
-        gameScreen.on('game:lose', function()
+        gameScreen.on('game:lose', function(score)
         {
             rootView.push(loseScreen);
+            loseScreen.emit('app:start', score);
         });
-        gameScreen.on('game:win', function()
+        gameScreen.on('game:win', function(score)
         {
             rootView.push(winScreen);
-            winScreen.emit('app:start');
+            winScreen.emit('app:start', score);
         });
   	};
 

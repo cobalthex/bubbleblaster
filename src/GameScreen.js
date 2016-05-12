@@ -10,9 +10,7 @@ import math.geom.Line as Line;
 import math.util as util;
 import src.Bubble as Bubble;
 import src.Cannon as Cannon;
-
-var score = 0;
-var padding = 10;
+import src.soundcontroller as soundcontroller;
 
 exports = Class(ui.ImageView, function(supr)
 {
@@ -31,6 +29,8 @@ exports = Class(ui.ImageView, function(supr)
         this.build();
     };
 
+    var sound = soundcontroller.getSound();
+    var padding = 10;
     var bubbleSize = 32;
     var bubbleColors = ['red', 'yellow', 'green', 'blue', 'purple'];
     var headerImage = new Image({ url: 'resources/images/ui/bg1_header.png' });
@@ -86,7 +86,7 @@ exports = Class(ui.ImageView, function(supr)
             return false;
 
         var cell = this.bubbles[cellY][cellX];
-        return new Line(x, y, cell.style.x, cell.style.y).getLength() <= bubbleSize;
+        return new Line(x, y, cell.style.x, cell.style.y).getLength() < bubbleSize;
     }
 
     //pop a bubble
@@ -94,6 +94,7 @@ exports = Class(ui.ImageView, function(supr)
     {
         bubble.removeFromSuperview();
         this.emit('bubble:popped');
+        sound.play('pop');
     }
 
     //starting at cell(X|Y), check for chains of at least 3 and pop (using a bfs search)
@@ -156,7 +157,7 @@ exports = Class(ui.ImageView, function(supr)
                 particles[i].image = 'resources/images/particles/10.png';
                 particles[i].dopacity = -1;
                 particles[i].dy = -10;
-                particles[i].delay = i * 100;
+                particles[i].delay = i * 50;
             }
             this.particles.emitParticles(particles);
 
@@ -286,31 +287,35 @@ exports = Class(ui.ImageView, function(supr)
 
             this.pop(this.active.color, cell);
 
+            if (this.next.length > 0)
+            {
+                animate(this.nextCounter).now({ opacity: 0 }, 0.5)
+                .then(function() { this.nextCounter.setText((this.next.length - 1).toString()); }.bind(this))
+                .then({ opacity: 1 }, 0.5);
+            }
+
             //make the staged bubble visible
             if (this.next.length > 1)
-                this.next[1].style.opacity = 1;
+             animate(this.next[1]).then({ opacity: 1 }, 1000);
 
             //move the previously staged bubble to the chamber
             if (this.next.length > 0)
             {
+                this.next[0].style.opacity = 0;
                 this.next[0].style.x = this.cannon.barrel.style.x + this.cannon.barrel.style.anchorX;
                 this.next[0].style.y = this.cannon.barrel.style.y + this.cannon.barrel.style.anchorY;
-                this.next[0].style.zIndex = 2;
+                this.next[0].style.zIndex = 2
                 this.next[0].style.opacity = 0.5;
             }
             else if (this.countRemaining() > 0)
-                this.emit('game:lose');
+                this.gameOver(false);
 
             if (this.countRemaining() < 1)
-                this.emit('game:win');
+                this.gameOver(true);
 
             //the screen has been filled
-            if (pos.y >= this.cannon.base.style.y - bubbleSize)
-            {
-                this.emit('game:lose');
-                this.active = null;
-                return;
-            }
+            if (pos.y >= this.cannon.barrel.style.y - (bubbleSize / 2))
+                this.gameOver(false);
 
             this.active = null;
         }
@@ -321,17 +326,50 @@ exports = Class(ui.ImageView, function(supr)
         }
     };
 
+    this.gameOver = function(didWin)
+    {
+        this.active = null;
+        this.playing = false;
+
+        if (didWin)
+        {
+            var fn = function()
+            {
+                if (this.next.length > 0)
+                {
+                    this.score += 10;
+                    var bubble = this.next.shift();
+                    bubble.style.opacity = 1;
+                    bubble.velocity = new Vec2D({ magnitude: 1500, angle: -util.random(75, 105) / 180 * Math.PI });
+                    bubble.falling = true;
+                    this.nextCounter.setText((this.next.length - 1).toString());
+
+                    setTimeout(fn, 50);
+                }
+                else
+                    setTimeout(function() { this.emit('game:win', this.score); }.bind(this), 500);
+
+            }.bind(this);
+            setTimeout(fn, 200);
+        }
+        else
+            setTimeout(function() { this.emit('game:lose', this.score); }.bind(this), 500);
+    };
+
     this.bubbles = [];
     this.next = [];
     this.active = null;
     this.score = this.visibleScore = 0;
+    this.playing = false;
 
     this.build = function()
     {
         this.on('app:start', function()
         {
+            this.playing = true;
             this.active = null;
             this.score = this.visibleScore = 0;
+            this.scoreboard.setText(this.visibleScore.toString());
 
             while (this.bubbles.length > 0)
             {
@@ -344,6 +382,13 @@ exports = Class(ui.ImageView, function(supr)
                 }
             }
 
+            while(this.next.length > 0)
+                this.next.pop().removeFromSuperview();
+
+            var colors = {};
+            for (var i in bubbleColors)
+                colors[bubbleColors[i]] = 0;
+
             //spawn bubbles
             for (var y = 0; y < nRows; y++)
             {
@@ -354,29 +399,54 @@ exports = Class(ui.ImageView, function(supr)
 
                 for (var x = 0; x < cols; x++)
                 {
+                    var color = null;
+                    //prefer color patterns
+                    if (this.bubbles.length > 0 && util.random(0, 3) < 2)
+                        color = this.bubbles[y - 1][x % nColumns[(y - 1) % 2]].color;
+                    else
+                    {
+                        color = bubbleColors[util.random(0, bubbleColors.length)];
+                        colors[color]++;
+                    }
+
                     row.push(this.spawn({
                         x: xOffset + (x * bubbleSize),
                         y: yOffset + (y * yHeight),
                         cellX: x,
                         cellY: y,
-                        color: bubbleColors[util.random(0, bubbleColors.length)]
+                        color: color
                     }));
                 }
                 this.bubbles.push(row);
             }
 
-            for (var i = 0; i < 50; i++)
-                this.next.push(this.spawn({ color: bubbleColors[util.random(0, bubbleColors.length)], x: 50, y: 440, opacity: 0 }));
+            for (var i in colors)
+            {
+                //spawn enough to break each chain
+                for (var j = 0; j < colors[i] + 2; j++)
+                    this.next.push(this.spawn({ color: i, x: 50, y: GC.app.height - 40, opacity: 0 }));
+            }
+            //randomize next list
+            for (var i = this.next.length; i > 0;)
+            {
+                var r = util.random(0, i);
+                i--;
+
+                var temp = this.next[i];
+                this.next[i] = this.next[r];
+                this.next[r] = temp;
+            }
 
             this.next[0].style.x = this.cannon.barrel.style.x + this.cannon.barrel.style.anchorX;
             this.next[0].style.y = this.cannon.barrel.style.y + this.cannon.barrel.style.anchorY;
             this.next[0].style.opacity = 0.5;
             this.next[0].style.zIndex = 2;
             animate(this.next[1]).then({ opacity: 1 }, 1000);
+            this.nextCounter.setText((this.next.length - 1).toString());
 
         }.bind(this));
 
-        this.header = new ui.ImageView({
+        var header = new ui.ImageView({
             superview: this,
             x: 0,
             y: 0,
@@ -409,6 +479,19 @@ exports = Class(ui.ImageView, function(supr)
             }
         });
 
+        this.nextCounter = new ui.TextView({
+            superview: this,
+            x: 50 - (bubbleSize / 2),
+            y: GC.app.height - 40 - (bubbleSize / 2),
+            size: 12,
+            width: bubbleSize,
+            height: bubbleSize,
+            color: 'white',
+            strokeColor: 'black',
+            strokeWidth: 3,
+            zIndex: 2,
+        })
+
         this.particles = new ParticleEngine({
             superview: this,
             width: 1,
@@ -420,7 +503,7 @@ exports = Class(ui.ImageView, function(supr)
         this.on('InputSelect', function(event, point)
         {
             //already an active bubble
-            if (this.active || this.next.length < 1)
+            if (!this.playing || this.active || this.next.length < 1)
                 return;
 
             var theta = this.cannon.barrel.style.r - (Math.PI / 2); //cannon's rotation is already clamped
@@ -430,6 +513,8 @@ exports = Class(ui.ImageView, function(supr)
             this.active.velocity = vel;
             this.active.style.zIndex = 0;
             this.active.style.opacity = 1;
+
+            sound.play('shoot');
         });
 
         this.on('bubble:popped', function()

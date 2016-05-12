@@ -2,7 +2,6 @@ import animate;
 import ui.View;
 import ui.ImageView;
 import ui.resource.Image as Image;
-import src.soundcontroller as soundcontroller;
 
 exports = Class(ui.View, function(supr)
 {
@@ -15,8 +14,6 @@ exports = Class(ui.View, function(supr)
 
 		supr(this, 'init', [opts]);
 		this.build();
-
-		var sound = soundcontroller.getSound();
 	}
 
 	this.build = function()

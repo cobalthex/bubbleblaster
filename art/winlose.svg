@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="78.457787mm"
+   height="104.42223mm"
+   viewBox="0 0 278.00003 370.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="winlose.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4184">
+      <stop
+         style="stop-color:#b3d300;stop-opacity:1"
+         offset="0"
+         id="stop4186" />
+      <stop
+         style="stop-color:#00ca99;stop-opacity:1"
+         offset="1"
+         id="stop4188" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4142">
+      <stop
+         style="stop-color:#bf194d;stop-opacity:1"
+         offset="0"
+         id="stop4144" />
+      <stop
+         style="stop-color:#fb7030;stop-opacity:1"
+         offset="1"
+         id="stop4146" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4142"
+       id="linearGradient4148"
+       x1="400.02042"
+       y1="306.86963"
+       x2="400.02042"
+       y2="226.05742"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="repeat"
+       gradientTransform="matrix(1.00003,0,0,1.00003,0.29315558,-0.46334862)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4184"
+       id="linearGradient4190"
+       x1="303.57144"
+       y1="434.50507"
+       x2="303.57144"
+       y2="516.64789"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="repeat"
+       gradientTransform="matrix(0.99788258,0,0,0.99788258,-216.46108,452.79002)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="136.04271"
+     inkscape:cy="70.191699"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1.2654843e-5,-682.3622)">
+    <g
+       id="g4198"
+       transform="translate(-253.79747,460.89056)"
+       inkscape:export-xdpi="89.999992"
+       inkscape:export-ydpi="89.999992">
+      <text
+         transform="scale(0.9988342,1.0011672)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.00061226px;line-height:125%;font-family:Arial;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:none;fill-opacity:1;stroke:#a30044;stroke-width:7.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="392.97028"
+         y="295.3035"
+         id="text4172"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4174"
+           x="392.97028"
+           y="295.3035"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:90.00250244px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#a30044;stroke-width:7.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">You</tspan><tspan
+           sodipodi:role="line"
+           x="392.97028"
+           y="385.306"
+           id="tspan4176"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:90.00250244px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#a30044;stroke-width:7.99999952;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Lose!</tspan></text>
+      <text
+         transform="scale(0.9988342,1.0011672)"
+         sodipodi:linespacing="125%"
+         id="text4136"
+         y="295.3035"
+         x="392.97028"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.00061226px;line-height:125%;font-family:Arial;-inkscape-font-specification:Sans;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4148);fill-opacity:1;stroke:#ff9a9a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:90.00250244px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:url(#linearGradient4148);fill-opacity:1;stroke:#ff9a9a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="295.3035"
+           x="392.97028"
+           id="tspan4138"
+           sodipodi:role="line">You</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:90.00250244px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:url(#linearGradient4148);fill-opacity:1;stroke:#ff9a9a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="tspan4140"
+           y="385.306"
+           x="392.97028"
+           sodipodi:role="line">Lose!</tspan></text>
+    </g>
+    <g
+       id="g4206"
+       inkscape:export-xdpi="89.999992"
+       inkscape:export-ydpi="89.999992">
+      <text
+         transform="scale(0.99846127,1.0015411)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';letter-spacing:0px;word-spacing:0px;fill:none;fill-opacity:1;stroke:#00788b;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="123.89825"
+         y="956.93964"
+         id="text4192"
+         sodipodi:linespacing="100%"><tspan
+           sodipodi:role="line"
+           id="tspan4194"
+           x="123.89825"
+           y="956.93964"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#00788b;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">You</tspan><tspan
+           sodipodi:role="line"
+           x="123.89825"
+           y="1046.749"
+           id="tspan4196"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#00788b;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Win!</tspan></text>
+      <text
+         transform="scale(0.99846127,1.0015411)"
+         sodipodi:linespacing="100%"
+         id="text4178"
+         y="956.93964"
+         x="123.89825"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4190);fill-opacity:1;stroke:#f3ff9a;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:url(#linearGradient4190);fill-opacity:1;stroke:#f3ff9a;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="956.93964"
+           x="123.89825"
+           id="tspan4180"
+           sodipodi:role="line">You</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:89.80944061px;line-height:100%;font-family:Coda;-inkscape-font-specification:'Coda Ultra-Bold';text-align:center;text-anchor:middle;fill:url(#linearGradient4190);fill-opacity:1;stroke:#f3ff9a;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="tspan4182"
+           y="1046.749"
+           x="123.89825"
+           sodipodi:role="line">Win!</tspan></text>
+    </g>
+  </g>
+</svg>
